@@ -13,7 +13,7 @@ namespace FetchTest
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://sdetchallenge.fetch.com/");
 
-            ValidatePage();
+            ValidatePage(driver);
 
             GoldBars bars = new GoldBars(driver);
             bars.NumberOfBars = 9;
@@ -26,7 +26,6 @@ namespace FetchTest
             if (bars.Result == "=")
             {
                 bars.LightBrick = 8;
-                //bars.ProcessFinalResult();
             }
             else
             {
@@ -38,10 +37,6 @@ namespace FetchTest
                     bars.ClickWeighButton();
                     bars.CheckResult();
                 }
-                
-                //bars.ProcessFinalResult();
-                //bars.VerifyMessage();
-                //bars.WriteResults();
             }
             bars.ProcessFinalResult();
             bars.VerifyMessage();
@@ -50,9 +45,11 @@ namespace FetchTest
 
         }
 
-        private void ValidatePage()
+        private void ValidatePage(IWebDriver driver)
         {
-            //throw new NotImplementedException();
+            driver.FindElement(By.ClassName("game-board"));
+            driver.FindElement(By.ClassName("coins"));
+            Console.WriteLine("Main page has been validated");
         }
     }
 }

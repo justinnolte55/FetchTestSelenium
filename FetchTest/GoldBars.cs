@@ -90,7 +90,6 @@ namespace FetchTest
 
         private void SplitList(string side)
         {
-            //var numberOfBarsLeft = 0;
             var startingValue = 0;
             var endValue = 0;
             var barsPerBowl = 0;
@@ -176,7 +175,6 @@ namespace FetchTest
                 LightBrick = LeftBowl[0];
             }            
             ChooseLightBrick();
-            //VerifyMessage();
         }
 
         public void WriteResults()
